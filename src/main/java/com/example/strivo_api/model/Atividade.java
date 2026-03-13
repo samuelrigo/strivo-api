@@ -92,5 +92,5 @@ public class Atividade {
     private Integer tempoTotal;
     private Double ganhoElevacao;
     private LocalDateTime dataInicio;
-    private String timezone;
+
 }
