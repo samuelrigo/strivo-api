@@ -12,7 +12,15 @@ public class Atividade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Boolean ativo;
     private String nome;
+    private String sportType;
+    private Double distancia;
+    private Integer tempoMovimento;
+    private Integer tempoTotal;
+    private Double ganhoElevacao;
+    private LocalDateTime dataInicio;
+    private String timezone;
 
     public Long getId() {
         return id;
@@ -20,6 +28,14 @@ public class Atividade {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
     public String getNome() {
@@ -85,12 +101,4 @@ public class Atividade {
     public void setTimezone(String timezone) {
         this.timezone = timezone;
     }
-
-    private String sportType;
-    private Double distancia;
-    private Integer tempoMovimento;
-    private Integer tempoTotal;
-    private Double ganhoElevacao;
-    private LocalDateTime dataInicio;
-    private String timezone;
 }
