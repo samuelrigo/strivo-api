@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class AtividadeController {
@@ -40,5 +41,12 @@ public class AtividadeController {
                 })
                 .map(atividade -> ResponseEntity.noContent().<Atividade>build())
                 .orElse(ResponseEntity.notFound().build());
+    }
+    @PutMapping("/atividades/{id}")
+    public ResponseEntity<Atividade> atualizarAtividadeById(@PathVariable Long id, @RequestBody Atividade atividade){
+        return repository.findById(id).map(atividadeNova -> {
+            atividade.setId(id);
+            return repository.save(atividade);
+        }).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 }
