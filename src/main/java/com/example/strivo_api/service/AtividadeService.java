@@ -15,7 +15,7 @@ public class AtividadeService {
     private AtividadeRepository repository;
 
     public List<Atividade> getAtividades() {
-        return repository.findAll();
+            return repository.findAll();
     }
 
     public Atividade adicionarAtividade(Atividade atividade) {

@@ -2,6 +2,7 @@ package com.example.strivo_api.controller;
 
 import com.example.strivo_api.model.Atividade;
 import com.example.strivo_api.service.AtividadeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class AtividadeController {
     }
 
     @PostMapping("/atividades")
-    public Atividade adicionarAtividade(@RequestBody Atividade atividade) {
+    public Atividade adicionarAtividade(@Valid @RequestBody Atividade atividade) {
         return service.adicionarAtividade(atividade);
     }
 
@@ -39,7 +40,7 @@ public class AtividadeController {
     }
 
     @PutMapping("/atividades/{id}")
-    public ResponseEntity<Atividade> atualizarAtividade(@PathVariable Long id, @RequestBody Atividade atividade) {
+    public ResponseEntity<Atividade> atualizarAtividade(@Valid @PathVariable Long id, @RequestBody Atividade atividade) {
         return service.atualizarAtividade(id, atividade)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

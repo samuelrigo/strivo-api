@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
@@ -13,10 +15,15 @@ public class Atividade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Boolean ativo;
+    @NotBlank
     private String nome;
+    @NotBlank
     private String sportType;
+    @NotNull
     private Double distancia;
+    @NotNull
     private Integer tempoMovimento;
+    @NotNull
     private Integer tempoTotal;
     private Double ganhoElevacao;
     private LocalDateTime dataInicio;
